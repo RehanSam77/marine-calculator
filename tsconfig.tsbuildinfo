@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/main.tsx","./src/types.ts","./src/vite-env.d.ts","./src/components/CalculationLog.tsx","./src/components/InputForm.tsx","./src/components/Results.tsx","./src/components/VoltageDropChart.tsx","./src/data/cableTables.ts","./src/lib/calculator.ts","./src/lib/pdf.ts"],"version":"5.9.3"}

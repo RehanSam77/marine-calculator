@@ -1,0 +1,17 @@
+// vite.config.js
+import { defineConfig } from "file:///sessions/brave-bold-mayer/mnt/Marine%20Calculator/node_modules/vite/dist/node/index.js";
+import react from "file:///sessions/brave-bold-mayer/mnt/Marine%20Calculator/node_modules/@vitejs/plugin-react/dist/index.js";
+var vite_config_default = defineConfig({
+  plugins: [react()],
+  // Use relative paths so the build works on any static host
+  // (Vercel, Netlify, GitHub Pages, S3, nginx, etc.)
+  base: "./",
+  build: {
+    outDir: "dist",
+    sourcemap: false
+  }
+});
+export {
+  vite_config_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidml0ZS5jb25maWcuanMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImNvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9kaXJuYW1lID0gXCIvc2Vzc2lvbnMvYnJhdmUtYm9sZC1tYXllci9tbnQvTWFyaW5lIENhbGN1bGF0b3JcIjtjb25zdCBfX3ZpdGVfaW5qZWN0ZWRfb3JpZ2luYWxfZmlsZW5hbWUgPSBcIi9zZXNzaW9ucy9icmF2ZS1ib2xkLW1heWVyL21udC9NYXJpbmUgQ2FsY3VsYXRvci92aXRlLmNvbmZpZy5qc1wiO2NvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9pbXBvcnRfbWV0YV91cmwgPSBcImZpbGU6Ly8vc2Vzc2lvbnMvYnJhdmUtYm9sZC1tYXllci9tbnQvTWFyaW5lJTIwQ2FsY3VsYXRvci92aXRlLmNvbmZpZy5qc1wiO2ltcG9ydCB7IGRlZmluZUNvbmZpZyB9IGZyb20gXCJ2aXRlXCI7XG5pbXBvcnQgcmVhY3QgZnJvbSBcIkB2aXRlanMvcGx1Z2luLXJlYWN0XCI7XG4vLyBodHRwczovL3ZpdGVqcy5kZXYvY29uZmlnL1xuZXhwb3J0IGRlZmF1bHQgZGVmaW5lQ29uZmlnKHtcbiAgICBwbHVnaW5zOiBbcmVhY3QoKV0sXG4gICAgLy8gVXNlIHJlbGF0aXZlIHBhdGhzIHNvIHRoZSBidWlsZCB3b3JrcyBvbiBhbnkgc3RhdGljIGhvc3RcbiAgICAvLyAoVmVyY2VsLCBOZXRsaWZ5LCBHaXRIdWIgUGFnZXMsIFMzLCBuZ2lueCwgZXRjLilcbiAgICBiYXNlOiBcIi4vXCIsXG4gICAgYnVpbGQ6IHtcbiAgICAgICAgb3V0RGlyOiBcImRpc3RcIixcbiAgICAgICAgc291cmNlbWFwOiBmYWxzZSxcbiAgICB9LFxufSk7XG4iXSwKICAibWFwcGluZ3MiOiAiO0FBQW9VLFNBQVMsb0JBQW9CO0FBQ2pXLE9BQU8sV0FBVztBQUVsQixJQUFPLHNCQUFRLGFBQWE7QUFBQSxFQUN4QixTQUFTLENBQUMsTUFBTSxDQUFDO0FBQUE7QUFBQTtBQUFBLEVBR2pCLE1BQU07QUFBQSxFQUNOLE9BQU87QUFBQSxJQUNILFFBQVE7QUFBQSxJQUNSLFdBQVc7QUFBQSxFQUNmO0FBQ0osQ0FBQzsiLAogICJuYW1lcyI6IFtdCn0K
