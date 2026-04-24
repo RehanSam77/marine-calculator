@@ -261,5 +261,6 @@ export function runCalculation(params: InputParameters): CalculationResult {
     num_runs: numberOfRuns,
     iterations,
     log,
+    core_Type: params.core_Type,
   };
 }

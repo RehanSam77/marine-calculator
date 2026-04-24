@@ -32,4 +32,18 @@ export interface CalculationResult {
   num_runs: number;
   iterations: IterationPoint[];
   log: string[];
+  core_Type: CoreType;
+}
+
+/**
+ * Build the product code, e.g. BVA-XXXN/2C70.
+ * The digit after the slash reflects the core type:
+ *   Single Core  → 1
+ *   2 Core       → 2
+ *   3 or 4 Core  → 3
+ */
+export function buildCableCode(coreType: CoreType, csa: string): string {
+  const coreDigit =
+    coreType === "Single Core" ? 1 : coreType === "2 Core" ? 2 : 3;
+  return `BVA-XXXN/${coreDigit}C${csa}`;
 }

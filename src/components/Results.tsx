@@ -1,5 +1,5 @@
 import { FileDown } from "lucide-react";
-import type { CalculationResult } from "../types";
+import { buildCableCode, type CalculationResult } from "../types";
 
 interface Props {
   result: CalculationResult | null;
@@ -53,7 +53,7 @@ export default function Results({ result, onExportPdf }: Props) {
               Selected cable
             </div>
             <div className="mt-1 text-2xl font-semibold">
-              BVA-XXXN/1C{result.csa}
+              {buildCableCode(result.core_Type, result.csa)}
             </div>
             <div className="mt-1 text-sm text-slate-300">
               {result.num_runs > 1

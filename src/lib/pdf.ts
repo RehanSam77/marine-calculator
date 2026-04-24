@@ -1,6 +1,10 @@
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
-import type { CalculationResult, InputParameters } from "../types";
+import {
+  buildCableCode,
+  type CalculationResult,
+  type InputParameters,
+} from "../types";
 
 const INK = "#0f172a";
 const MUTED = "#64748b";
@@ -69,7 +73,7 @@ export async function generatePdfReport(
     startY: afterInputsY + 40,
     head: [["Parameter", "Value", "Unit"]],
     body: [
-      ["Selected Cable Type", `BVA-XXXN/1C${result.csa}`, ""],
+      ["Selected Cable Type", buildCableCode(result.core_Type, result.csa), ""],
       ["Number of Runs", String(result.num_runs), ""],
       ["CSA", String(result.csa), "mm²"],
       ["Rated Current", String(result.rated_Current), "A"],
