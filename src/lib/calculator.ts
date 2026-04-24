@@ -4,11 +4,12 @@ import {
   RESISTANCE_TABLE,
   type CableTable,
 } from "../data/cableTables";
-import type {
-  CalculationResult,
-  CoreType,
-  InputParameters,
-  IterationPoint,
+import {
+  buildCableCode,
+  type CalculationResult,
+  type CoreType,
+  type InputParameters,
+  type IterationPoint,
 } from "../types";
 
 const MAX_ITERATIONS = 20;
@@ -87,6 +88,7 @@ export function runCalculation(params: InputParameters): CalculationResult {
 
   const angle = Math.acos(params.pf);
   const angleDeg = (angle * 180) / Math.PI;
+  log.push(`Core type: ${params.core_Type}`);
 
   let csa: string;
   let ratedCurrent: number;
@@ -107,7 +109,9 @@ export function runCalculation(params: InputParameters): CalculationResult {
     csa = closest.key;
     ratedCurrent = closest.value;
 
-    log.push(`Initial CSA selected: ${csa} mm²`);
+    log.push(
+      `Initial cable selected: ${buildCableCode(params.core_Type, csa)} (${csa} mm²)`,
+    );
     log.push(`Initial rated current: ${ratedCurrent} A`);
 
     let iter = 0;
@@ -140,7 +144,9 @@ export function runCalculation(params: InputParameters): CalculationResult {
       });
 
       log.push(`Iteration ${iter}:`);
-      log.push(`  CSA: ${csa} mm², Rated Current: ${ratedCurrent} A`);
+      log.push(
+        `  Cable: ${buildCableCode(params.core_Type, csa)}, Rated Current: ${ratedCurrent} A`,
+      );
       log.push(`  R: ${R.toFixed(4)} Ω/km, X: ${X.toFixed(4)} Ω/km`);
       log.push(`  Voltage Drop: ${VdPercent.toFixed(2)}%`);
 
@@ -169,9 +175,12 @@ export function runCalculation(params: InputParameters): CalculationResult {
             Math.pow(loadPerRun / ratedCurrent, 2) +
             params.ambient_Temp;
           log.push(
-            `Runs: ${runs} | CSA: ${csa} mm² | I/run: ${loadPerRun.toFixed(
+            `Runs: ${runs} | Cable: ${buildCableCode(
+              params.core_Type,
+              csa,
+            )} | I/run: ${loadPerRun.toFixed(2)} A | Vd%: ${VdPercent.toFixed(
               2,
-            )} A | Vd%: ${VdPercent.toFixed(2)}%`,
+            )}%`,
           );
           if (
             VdPercent <= params.voltage_Drop &&
@@ -229,9 +238,10 @@ export function runCalculation(params: InputParameters): CalculationResult {
       });
 
       log.push(
-        `Runs: ${numberOfRuns} | CSA: ${csa} mm² | I/run: ${loadPerRun.toFixed(
-          2,
-        )} A | Vd%: ${VdPercent.toFixed(2)}%`,
+        `Runs: ${numberOfRuns} | Cable: ${buildCableCode(
+          params.core_Type,
+          csa,
+        )} | I/run: ${loadPerRun.toFixed(2)} A | Vd%: ${VdPercent.toFixed(2)}%`,
       );
 
       if (met) {
